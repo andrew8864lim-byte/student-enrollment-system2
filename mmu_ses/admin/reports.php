@@ -20,13 +20,11 @@ if (!empty($_GET['export'])) {
         header('Content-Disposition: attachment; filename="students_' . date('Ymd_His') . '.csv"');
         
         $out = fopen('php://output', 'w');
-        // UTF-8 BOM 确保 Excel 读取时不乱码
+
         fprintf($out, chr(0xEF).chr(0xBB).chr(0xBF));
-        
-        // 严格对应你的数据库字段名
+
         fputcsv($out, ['id', 'student_id', 'full_name', 'email', 'password', 'programme', 'trimester', 'created_at']);
         foreach ($rows as $r) {
-            // 使用 ="value" 语法强制 Excel 视其为文本，既不漏掉前导零、也不会因为列窄把时间缩成 #####
             $excel_student_id = '="' . $r['student_id'] . '"';
             $excel_created_at = '="' . $r['created_at'] . '"';
             
@@ -68,8 +66,7 @@ if (!empty($_GET['export'])) {
         
         $out = fopen('php://output', 'w');
         fprintf($out, chr(0xEF).chr(0xBB).chr(0xBF));
-        
-        // 已按要求移除 Waitlist 位置与日期
+
         fputcsv($out, ['Student ID', 'Student Name', 'Course Code', 'Course Name', 'Credits', 'Status']);
         foreach ($rows as $r) {
             $excel_student_id = '="' . $r['student_id'] . '"';

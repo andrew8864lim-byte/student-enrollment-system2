@@ -2,8 +2,7 @@
 /**
  * Admin → Prerequisites.
  * Manage the (course, prereq) links in course_prerequisites. Adds, deletes.
- * Cycle prevention is intentionally lightweight — we only block A→A on
- * insert. A full topological cycle check is overkill for a course catalogue.
+ * Cycle prevention is intentionally lightweight — we only block A→A on insert. A full topological cycle check is overkill for a course catalogue.
  */
 require_once __DIR__ . '/../includes/bootstrap.php';
 require_admin();

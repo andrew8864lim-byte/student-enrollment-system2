@@ -72,12 +72,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $courses = CourseModel::findAll();
 $edit    = isset($_GET['edit']) ? CourseModel::findById((int)$_GET['edit']) : null;
 
-// 在编辑时，尝试解析已有的 schedule_info 填回表单
 $edit_lecture_day = ''; $edit_lecture_start = ''; $edit_lecture_end = '';
 $edit_lab_day = ''; $edit_lab_start = ''; $edit_lab_end = '';
 
 if ($edit && !empty($edit['schedule_info'])) {
-    // 假设存储格式如: "Mon 10:00-12:00, Wed 14:00-15:00"
     $slots = explode(',', $edit['schedule_info']);
     if (isset($slots[0])) {
         preg_match('/^\s*([A-Za-z]+)\s+(\d{2}:\d{2})-(\d{2}:\d{2})/', $slots[0], $matches);

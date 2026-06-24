@@ -10,7 +10,6 @@ require_once __DIR__ . '/../includes/bootstrap.php';
 require_student();
 $user = current_user();
 
-// ----- Handle drop POST -----
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'drop') {
     AuthController::verifyCsrf();
     $course_id = (int)($_POST['course_id'] ?? 0);

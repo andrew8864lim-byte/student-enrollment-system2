@@ -1,7 +1,7 @@
 <?php
 /**
  * Admin → Dashboard.
- * System-wide stats and a glimpse at the most-filled courses.
+ * System-wide stats and a glimpse at most-filled courses.
  */
 require_once __DIR__ . '/../includes/bootstrap.php';
 require_admin();

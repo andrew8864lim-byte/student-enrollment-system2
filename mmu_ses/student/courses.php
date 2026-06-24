@@ -9,14 +9,12 @@ require_student();
 
 $user = current_user();
 
-// ----- Handle enrolment POST -----
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'enroll') {
     AuthController::verifyCsrf();
     $course_id = (int)($_POST['course_id'] ?? 0);
 
     $res = EnrollmentController::enroll($user['id'], $course_id);
 
-    // Map the controller's `kind` field onto a flash style
     $flash_type = $res['ok']
         ? ($res['kind'] === 'waitlisted' ? 'warning' : 'success')
         : 'error';
@@ -25,15 +23,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'enrol
     exit;
 }
 
-// ----- Filters -----
 $q          = trim($_GET['q'] ?? '');
 $trim       = $_GET['trim'] ?? '';
 $show_full  = isset($_GET['show_full']);
 
-// Pull the candidate list from the model (Ensure this model SQL excludes 'enrolled','waitlisted','completed' only)
 $courses = CourseModel::availableForStudent($user['id']);
 
-// Apply filters in PHP (small list, cleaner than rebuilding SQL)
 $courses = array_filter($courses, function ($c) use ($q, $trim, $show_full, $user) {
     if ($c['programme'] !== $user['programme']) return false;
     if ($q !== '') {

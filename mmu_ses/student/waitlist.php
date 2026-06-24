@@ -2,8 +2,8 @@
 /**
  * Student → My Waitlist.
  * Lists every course the student is queued for, with their queue position
- * and an option to withdraw. When somebody drops, EnrollmentModel
- * automatically promotes the head of the queue — see
+ * option to withdraw. When somebody drops, EnrollmentModel
+ * automatically promotes the head of the queue
  * EnrollmentModel::drop() for the logic.
  */
 require_once __DIR__ . '/../includes/bootstrap.php';

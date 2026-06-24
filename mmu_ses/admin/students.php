@@ -1,7 +1,7 @@
 <?php
 /**
  * Admin → Manage Students (Screen 5 in the report).
- * Full CRUD plus password reset. All persistence goes through StudentModel.
+ * Full CRUD plus password reset correctly. All persistence goes through StudentModel.
  */
 require_once __DIR__ . '/../includes/bootstrap.php';
 require_admin();

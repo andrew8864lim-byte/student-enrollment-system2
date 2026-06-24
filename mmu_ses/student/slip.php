@@ -1,7 +1,7 @@
 <?php
 /**
  * Student → Registration Confirmation Slip.
- * Self-contained HTML page that uses @media print styles so the
+ * Self-contained HTML page that uses @media print styles so
  * browser's "Save as PDF" produces a clean, printable artefact.
  *
  * Bypasses the standard sidebar layout because the slip is meant to
