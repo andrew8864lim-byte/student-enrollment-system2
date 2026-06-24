@@ -41,7 +41,7 @@ require_once __DIR__ . '/../includes/header.php';
     </div>
     <div class="stat-card">
         <div class="stat-icon" style="background:#d1fae5;">🎯</div>
-        <div><div class="stat-label">Active Enrolments</div><div class="stat-value"><?= $enrolled_count ?></div></div>
+        <div><div class="stat-label">Active Enrollments</div><div class="stat-value"><?= $enrolled_count ?></div></div>
     </div>
     <div class="stat-card">
         <div class="stat-icon" style="background:#ede9fe;">⏳</div>
@@ -81,7 +81,7 @@ require_once __DIR__ . '/../includes/header.php';
     </div>
 
     <div class="card">
-        <div class="card-header"><h3>Enrolment status breakdown</h3></div>
+        <div class="card-header"><h3>Enrollment status breakdown</h3></div>
         <div class="card-body">
             <table style="margin:0;">
                 <tr><td><?= status_badge('enrolled') ?></td><td style="text-align:right;"><strong><?= $enrolled_count ?></strong></td></tr>

@@ -108,7 +108,7 @@ require_once __DIR__ . '/../includes/header.php';
                                 <?= AuthController::csrfField() ?>
                                 <input type="hidden" name="action" value="drop">
                                 <input type="hidden" name="course_id" value="<?= (int)$r['course_id'] ?>">
-                                <button class="btn btn-sm btn-outline" type="submit">Withdraw</button>
+                                <button class="btn btn-sm btn-outline" type="submit">Remove</button>
                             </form>
                         </td>
                     </tr>
